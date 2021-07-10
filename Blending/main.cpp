@@ -7,10 +7,10 @@ void DesenhaQuadrado()
 {
 	// Desenha um quadrado	
 	glBegin(GL_QUADS);
-	glVertex2f(-10, -10);
-	glVertex2f(-10, 10);
-	glVertex2f(10, 10);
-	glVertex2f(10, -10);
+		glVertex2f(-10, -10);
+		glVertex2f(-10, 10);
+		glVertex2f(10, 10);
+		glVertex2f(10, -10);
 	glEnd();
 }
 
