@@ -43,7 +43,6 @@
 
 // Posição X da primeira columa de mesas
 #define X_INI	-220
-
 using namespace std;
 
 // Variáveis para controle da projeção
@@ -115,7 +114,7 @@ GLfloat luzDif5[4] = { LOW*2, LOW*2, LOW*2, 1.0 };	// luz difusa
 GLfloat posLuz5[4] = { 0, 0, 0, 1.0 };		// pos em relação à câmera
 GLfloat dirLuz5[4] = { 0, 0, -1, 0.0 };		// aponta para a frente
 
-bool luzes[5] = {true, true, true, true, false};
+int luzes[5] = {1, 1, 1, 1, 0};
 
 // Define variáveis para navegação
 GLfloat rotX=0, rotY=0, rotX_ini, rotY_ini;
@@ -192,6 +191,7 @@ void DesenhaParedes(void)
 		glColor3f(1,1,1);
 	else
 		glColor3ub(196,210,184);
+
 	// Parede dos fundos
 	glPushMatrix();
 	glTranslatef(0,150,-400);
@@ -722,12 +722,17 @@ void Teclado(unsigned char key, int x, int y)
 					glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, modo);
 					break;
 		// Alterna entre os modos de desenho
-		case 't':	if(modo_des == 'w') modo_des = 's';
-					else if(modo_des == 's') modo_des = 't';
-					else if(modo_des == 't') modo_des = 'w';
-					SetaModoDesenho(modo_des);
-					CriaDisplayList(NULL);
-					break;
+		case 't':	
+			if(modo_des == 'w') 
+				modo_des = 's';
+			else if(modo_des == 's') 
+				modo_des = 't';
+			else if(modo_des == 't') 
+				modo_des = 'w';
+			
+			SetaModoDesenho(modo_des);
+			CriaDisplayList(NULL);
+			break;
 		// Ativa / desativa neblina
 		case 'n':	if(glIsEnabled(GL_FOG))
 							glDisable(GL_FOG);
