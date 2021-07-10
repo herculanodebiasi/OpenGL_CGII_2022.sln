@@ -2,7 +2,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-GLfloat raioBola = 0.05f;
+GLfloat raioBola = 0.1f;
 GLfloat bolaX = 0.0f;
 GLfloat bolaY = 0.0f;
 GLfloat bolaXMax, bolaXMin, bolaYMax, bolaYMin;
